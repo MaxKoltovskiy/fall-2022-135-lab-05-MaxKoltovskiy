@@ -13,10 +13,10 @@ TEST_CASE("Yes/No output of booleans"){
     CHECK(booleanOutput(false) == "No");
 }
 TEST_CASE("Is Prime"){
+    CHECK(isPrime(0) == false);
     CHECK(isPrime(1) == false);
     CHECK(isPrime(2) == true);
     CHECK(isPrime(31) == true);
-    CHECK(isPrime(16) == false);
 }
 TEST_CASE("Next Prime Number"){
     CHECK(nextPrime(1) == 2);
@@ -27,4 +27,19 @@ TEST_CASE("Next Prime Number"){
 TEST_CASE("Prime Counter"){
     CHECK(countPrimes(1,3) == 2);
     CHECK(countPrimes(2,10) == 4);
+}
+TEST_CASE("Is a Twin Prime"){
+    CHECK(isTwinPrime(1) == false);
+    CHECK(isTwinPrime(27) == false);
+    CHECK(isTwinPrime(31) == true);
+}
+TEST_CASE("Next Twin Prime"){
+    CHECK(nextTwinPrime(1) == 3);
+    CHECK(nextTwinPrime(19) == 29);
+}
+TEST_CASE("Largest Twin Prime"){
+    CHECK(largestTwinPrime(5, 18) == 17);
+    CHECK(largestTwinPrime(1, 31) == 31);
+    CHECK(largestTwinPrime(14, 16) == -1);
+
 }

@@ -21,11 +21,11 @@ std::string booleanOutput(bool test) {
 }
 
 bool isPrime(int num) {
-    if(num == 1)
+    if(num <= 1)
         return false;
         
     for(int i = 2; i< num; i++) {
-        if(!(num % i)) {
+        if( isDivisibleBy(num,i) ) {
             return false;
         }
     }
@@ -48,6 +48,34 @@ int countPrimes(int first, int second) {
         }
     }
     return primes;
+}
+
+bool isTwinPrime(int num) {
+    if(!isPrime(num))
+        return false;
+
+    if(isPrime(num+2) || isPrime(num-2)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+int nextTwinPrime(int num) {
+    do{
+        num++;
+    }while(!(isTwinPrime(num)) );
+
+    return num;
+}
+
+int largestTwinPrime(int lower, int upper) {
+    for(int i = upper; i>= lower; i--) {
+        if(isTwinPrime(i))
+            return i;
+    }
+    return -1;
 }
 
 
